@@ -17,25 +17,22 @@
     <a href="/index.jsp">Home</a> |
 </nav>
 <h1>Hello, ${name}</h1>
-<h2>Please vote for somebody</h2>
-
-<%--<select name="candidate" id="candidate">--%>
-<%--<c:forEach items="${RootServlet.vs.getVoting().getCandidates()}" var="cand">--%>
-<%--<option value="${cand.getName()}">--%>
-<%--${cand.getName()}--%>
-<%--</option>--%>
-<%--</c:forEach>--%>
-<%--</select>--%>
-
-<form action="/vote" method="post">
-    <c:forEach items="${RootServlet.vs.getVoting().getCandidates()}" var="cand">
-        <input type="radio" name="candidate" value="${cand.getName()}">
-        ${cand.getName()}
-        </input>
-    </c:forEach>
-    <input type="submit" value="Vote">
-</form>
-
-
+<c:choose>
+    <c:when test="${voted == true}">
+        <h3>You've already voted. Go to <a href="/getResult">result</a></h3>
+    </c:when>
+    <c:otherwise>
+        <h2>Please vote for somebody</h2>
+        <form action="/vote" method="post">
+            <input type="hidden" name="login" value="${login}">
+            <c:forEach items="${RootServlet.vs.getVoting().getCandidates()}" var="cand">
+                <input type="radio" name="candidate" value="${cand.getName()}">
+                ${cand.getName()}
+                </input>
+            </c:forEach>
+            <input type="submit" value="Vote">
+        </form>
+    </c:otherwise>
+</c:choose>
 </body>
 </html>

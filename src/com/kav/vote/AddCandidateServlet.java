@@ -15,6 +15,10 @@ public class AddCandidateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RootServlet.vs.addCandidate(new Candidate((String) request.getParameter("candidateName")));
         System.out.println("new candidate added" + (String) request.getParameter("candidateName"));
+
+        System.out.println("Rediredcting to admin's page");
+        request.setAttribute("successMessage", "Candidate <" + request.getParameter("candidateName") + "> has been successfully added");
+        request.getRequestDispatcher("admin.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

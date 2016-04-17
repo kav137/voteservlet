@@ -4,6 +4,10 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+    <filter>
+        <filter-name>NoCacheFilter</filter-name>
+        <filter-class>com.kav.vote.NoCacheFilter</filter-class>
+    </filter>
     <servlet>
         <servlet-name>RootServlet</servlet-name>
         <servlet-class>com.kav.vote.RootServlet</servlet-class>
@@ -69,6 +73,11 @@
         <servlet-name>VoteServlet</servlet-name>
         <url-pattern>/vote</url-pattern>
     </servlet-mapping>
+    <filter-mapping>
+        <filter-name>NoCacheFilter</filter-name>
+        <url-pattern>/signup</url-pattern>
+        <url-pattern>/signin</url-pattern>
+    </filter-mapping>
 
 
 </web-app>

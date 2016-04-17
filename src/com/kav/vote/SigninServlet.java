@@ -29,13 +29,13 @@ public class SigninServlet extends HttpServlet {
         }
 
         //regular user
-        User currUser = RootServlet.vs.FindUser(login);
+        Elector currUser = RootServlet.vs.FindUser(login);
         if (currUser == null) {
             request.setAttribute("errorMessage", "wrong credentials provided");
             request.getRequestDispatcher("error.jsp").forward(request, response);
         } else {
             System.out.println("Successfully logged in. Redirecting to user's page");
-            request.setAttribute("user", currUser);
+            request.setAttribute("elector", currUser);
             request.getRequestDispatcher("user").forward(request, response);
         }
     }

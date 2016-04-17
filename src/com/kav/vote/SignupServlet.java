@@ -19,12 +19,12 @@ public class SignupServlet extends HttpServlet {
         String pwd = request.getParameter("password");
 
         System.out.println("Attempt to sign up: login = " + login);
-        User currUser = RootServlet.vs.FindUser(login);
-        if (currUser == null && login != RootServlet.admin.getLogin()) {
+        Elector elector = RootServlet.vs.FindUser(login);
+        if (elector == null && login != RootServlet.admin.getLogin()) {
             System.out.println("Didn't find this user in list. Adding new User instance to users");
-            currUser = new User(name, login, pwd);
-            RootServlet.vs.AddUser(currUser);
-            request.setAttribute("user", currUser);
+            elector = new Elector(name, login, pwd);
+            RootServlet.vs.AddUser(elector);
+            request.setAttribute("elector", elector);
             request.getRequestDispatcher("/user").forward(request, response);
         } else {
             System.out.println("User with this login already exists. Redirecting to error page");

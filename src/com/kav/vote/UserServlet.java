@@ -14,9 +14,10 @@ import java.io.PrintWriter;
 @WebServlet(name = "UserServlet")
 public class UserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User user = (User) request.getAttribute("user");
-        request.setAttribute("name", user.getName());
-
+        Elector elector = (Elector) request.getAttribute("elector");
+        request.setAttribute("name", elector.getName());
+        request.setAttribute("voted", elector.isVoted());
+        request.setAttribute("login", elector.getLogin());
         request.getRequestDispatcher("user.jsp").forward(request, response);
     }
 

@@ -13,11 +13,14 @@ import java.io.IOException;
 @WebServlet(name = "VoteServlet")
 public class VoteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Candidate cand = RootServlet.vs.getVoting().getCandidate(request.getParameter("candidate"));
-        cand.voteFor();
-        System.out.println("voted for : " + cand.getName());
-
-        User user = (User) request.getAttribute("user");
+        if (!RootServlet.vs.FindUser(request.getParameter("login")).isVoted()) {
+            Candidate cand = RootServlet.vs.getVoting().getCandidate(request.getParameter("candidate"));
+            cand.voteFor();
+            System.out.println("voted for : " + cand.getName());
+            RootServlet.vs.FindUser(request.getParameter("login")).vote();
+        } else {
+            request.setAttribute("message", "Your voice hasn't been accepted 'cause you've already voted");
+        }
         request.getRequestDispatcher("/getResult").forward(request, response);
     }
 

@@ -17,6 +17,10 @@ public class CreateVotingServlet extends HttpServlet {
         Voting voting = new Voting(request.getParameter("voteTitle"), new ArrayList<>());
         RootServlet.vs.setVoting(voting);
         System.out.println("created voting with title : " + request.getParameter("voteTitle"));
+        System.out.println("Rediredcting to admin's page");
+
+        request.setAttribute("successMessage", "Voting <" + request.getParameter("voteTitle") + "> has been successfully created");
+        request.getRequestDispatcher("admin.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

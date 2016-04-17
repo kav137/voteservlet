@@ -7,11 +7,11 @@ import java.util.HashMap;
  * Created by kav on 01.04.2016.
  */
 public class VotingSystem {
-    private ArrayList<User> users = new ArrayList<>();
+    private ArrayList<Elector> users = new ArrayList<>();
     private Voting currentVoting;
 
-    protected void AddUser(User user) {
-        users.add(user);
+    protected void AddUser(Elector elector) {
+        users.add(elector);
     }
 
     public void addCandidate(Candidate cand) {
@@ -26,8 +26,8 @@ public class VotingSystem {
         currentVoting = voting;
     }
 
-    protected User FindUser(String _login) {
-        for (User user : users) {
+    protected Elector FindUser(String _login) {
+        for (Elector user : users) {
             if (user.getLogin().equals(_login)) {
                 return user;
             }

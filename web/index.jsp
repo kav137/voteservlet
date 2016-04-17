@@ -13,7 +13,7 @@
 <body>
 <h1>Welcome to our amazing voting system!</h1>
 <h3>
-    <a href="/signin.jsp">Login</a>
+    <a href="/signin.jsp">Sign in</a>
 </h3>
 <h3>
     <a href="/signup.jsp">Sign up</a>
