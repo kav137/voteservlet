@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <servlet>
+        <servlet-name>RootServlet</servlet-name>
+        <servlet-class>com.kav.vote.RootServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SignupServlet</servlet-name>
+        <servlet-class>com.kav.vote.SignupServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SigninServlet</servlet-name>
+        <servlet-class>com.kav.vote.SigninServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>com.kav.vote.UserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateVotingServlet</servlet-name>
+        <servlet-class>com.kav.vote.CreateVotingServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetResultServlet</servlet-name>
+        <servlet-class>com.kav.vote.GetResultServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddCandidateServlet</servlet-name>
+        <servlet-class>com.kav.vote.AddCandidateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VoteServlet</servlet-name>
+        <servlet-class>com.kav.vote.VoteServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RootServlet</servlet-name>
+        <url-pattern></url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignupServlet</servlet-name>
+        <url-pattern>/signup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SigninServlet</servlet-name>
+        <url-pattern>/signin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/user</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddCandidateServlet</servlet-name>
+        <url-pattern>/addCandidate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateVotingServlet</servlet-name>
+        <url-pattern>/createVoting</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetResultServlet</servlet-name>
+        <url-pattern>/getResult</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VoteServlet</servlet-name>
+        <url-pattern>/vote</url-pattern>
+    </servlet-mapping>
+
+
+</web-app>
