@@ -17,7 +17,7 @@ public class AddCandidateServlet extends HttpServlet {
         System.out.println("new candidate added" + (String) request.getParameter("candidateName"));
 
         System.out.println("Rediredcting to admin's page");
-        request.setAttribute("successMessage", "Candidate <" + request.getParameter("candidateName") + "> has been successfully added");
+        request.setAttribute("successMessage", "Candidate " + request.getParameter("candidateName") + " has been successfully added");
         request.getRequestDispatcher("admin.jsp").forward(request, response);
     }
 
